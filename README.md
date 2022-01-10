@@ -1,12 +1,6 @@
-# Template for simple Java Projects
+# Datastrukturer och algoritmer
+## Lektionsexempel
 
-## IntelliJ
-
-Open the project an wait for Gradle to do its thing.
-
-## VSCode
-
-"Open in Container" to run in a Dev-Container. Requires plugin Remote Containers (and Docker installed on your system).
-
-
-
+- Varje lektions exempelkod sparas i en skild branch.
+- Välj branch genom att klicka på branch-menyn på github
+- För att tracka en remote branch (om du vill få med en ny lektion i din lokala kopia) t.ex: `git checkout --track origin/lektion-1` 
