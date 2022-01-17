@@ -2,29 +2,45 @@ import java.util.Scanner;
 
 public class Main {
 
+    // Konstant
+    static final double APP_VERSION = 1.0;
+
     public static void main(String[] args) {
 
         // Scanner med System.in läser input från konsolen
         Scanner console = new Scanner(System.in);
 
-        System.out.println("Hello Java!");
+        System.out.println("App version " + APP_VERSION);
 
-        Vehicle car = new Car("VW");
+        Vehicle car, car2;
+
+        car = new Car("VW");
+        car2 = new Car("Toyota");
 
         Vehicle bike = new Bike("PlanetX", "fixie");
         Vehicle otherBike = new Bike("Jopo");
 
-        Vehicle todaysVehicle = bike;
+        System.out.println("tot cars: " + car.getSubObjectCount());
+        System.out.println("tot vehicles: " + Vehicle.getVehicleCounter());
+        System.out.println("tot bikes: " + bike.getSubObjectCount());
 
-        int loopCount = 3;
+        // rätt:
+        System.out.println(car.getAdditionalInfo());
+        // fel:
+        car2.getAdditionalInfo2();
+
+        Vehicle myCar;
+        String[] carBrands = { "Tesla", "VW", "Toyota" };
+        int[] myNumbers = { 2, 4, 8 };
+
+        int i = 0;
         String userInput;
-        while (loopCount > 0) {
+        while (true) {
 
-            System.out.println(loopCount);
+            myCar = new Car(carBrands[i]);
+
             // System.out.println("My car is a " + car.getName());
-            System.out.println("My bike is a " + bike.getName());
-            //System.out.println("other bike: " + otherBike.getName());
-            System.out.println("Today i used my " + todaysVehicle.getName());
+            System.out.println("My car is a " + myCar.getName());
 
             System.out.println("Enter to continue, q to quit:");
 
@@ -34,7 +50,7 @@ public class Main {
                 break;
             }
 
-            loopCount--;
+            i++;
 
         }
 
