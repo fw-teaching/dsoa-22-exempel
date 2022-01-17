@@ -6,6 +6,8 @@ public class Car extends Vehicle {
 
     // Klassvariabel (samma värde för alla instanser)
     static int carCounter = 0;
+
+    // Använd Random() för att få slumptal
     Random rnd = new Random();
 
     // Konstruktor

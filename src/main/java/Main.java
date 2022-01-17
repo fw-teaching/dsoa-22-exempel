@@ -7,15 +7,17 @@ public class Main {
 
     public static void main(String[] args) {
 
+        System.out.println("App version " + APP_VERSION);
+
         // Scanner med System.in läser input från konsolen
         // Skilda objekt för att ta emot int och string för att undvika error
         Scanner consoleStr = new Scanner(System.in);
         Scanner consoleInt = new Scanner(System.in);
 
-        System.out.println("App version " + APP_VERSION);
-
+        // Man kan deklarera variabler av samma typ flera på en gång
         Vehicle car, car2;
 
+        // ArrayList-exempel:
         Garage garage = new Garage();
         garage.addCar(new Car("Fiat"));
 
@@ -27,6 +29,7 @@ public class Main {
         car = garage.getInventory().get(consoleInt.nextInt());
         System.out.println("Du valde: " + car.getName() + "\n----\n");
 
+        // HashMap-exempel:
         Garage2 garage2 = new Garage2();
         System.out.println("Bilar i vårt andra garage:");
         for (String key: garage2.getInventory().keySet()) {
@@ -37,50 +40,25 @@ public class Main {
         System.out.println("Du valde: " + car2.getName() + "\n----\n");
 
 
-        /*
-        car2 = new Car("Toyota");
-
-        Vehicle bike = new Bike("PlanetX", "fixie");
-        Vehicle otherBike = new Bike("Jopo");
-
-        System.out.println("tot cars: " + car.getSubObjectCount());
-        System.out.println("tot vehicles: " + Vehicle.getVehicleCounter());
-        System.out.println("tot bikes: " + bike.getSubObjectCount());
-
-        // rätt:
-        System.out.println(car.getAdditionalInfo());
-        // fel:
-        car2.getAdditionalInfo2();
-
-        Vehicle myCar;
+        // Arrays:
         String[] carBrands = { "Tesla", "VW", "Toyota" };
         int[] myNumbers = { 2, 4, 8 };
+        System.out.println("Car brands:");
+        for (int i = 0; i < carBrands.length; i++) {
+            System.out.println(carBrands[i]);
+        }
 
+        // Klassvariabler
+        System.out.println("tot cars: " + car.getSubObjectCount());
+        System.out.println("tot vehicles: " + Vehicle.getVehicleCounter());
 
-         */
+        // Skriv inte ut saker i andra klasser än den som används för UI (Main i det här fallet)
+        // rätt (vi använder main för UI):
+        System.out.println(car.getAdditionalInfo());
+        // Fel: inga direkta utskrifter i logikklasserna!
+        car2.getAdditionalInfo2();
 
-        /* int i = 0;
-        String userInput;
-        while (true) {
-
-            myCar = new Car(carBrands[i]);
-
-            // System.out.println("My car is a " + car.getName());
-            System.out.println("My car is a " + myCar.getName());
-
-            System.out.println("Enter to continue, q to quit:");
-
-            userInput = console.nextLine();
-            if (userInput.equals("q")) {
-                System.out.println("Bye!");
-                break;
-            }
-
-            i++;
-
-        }*/
-
-        // Stäng scanner-objektet!
+        consoleInt.close();
         consoleStr.close();
     }
 }
