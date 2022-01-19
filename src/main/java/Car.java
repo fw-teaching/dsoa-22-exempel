@@ -2,7 +2,8 @@ import java.util.Random;
 
 public class Car extends Vehicle {
 
-    int mileage;
+    // FIX: den här instansvariabeln behövs inte, den är ju redan reklarerad i Vehicle
+    //int mileage;
 
     // Klassvariabel (samma värde för alla instanser)
     static int carCounter = 0;

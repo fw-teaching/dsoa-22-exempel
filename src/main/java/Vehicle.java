@@ -1,7 +1,9 @@
 abstract class Vehicle {
 
-    private String name; // Instansvariabel
-    int mileage; // Instansvariabel
+    // Instansvariabler (kan i vissa fall göras publika (eller protected) om vi vill
+    // komma åt dem direkt i subklasser (t.ex mileage här))
+    private String name;
+    int mileage;
 
     // Klassvariabel (samma värde för alla instanser)
     static int vehicleCounter = 0;
