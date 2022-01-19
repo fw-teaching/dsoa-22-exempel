@@ -2,7 +2,8 @@ import java.util.Random;
 
 public class Car extends Vehicle {
 
-    // FIX: den här instansvariabeln behövs inte, den är ju redan reklarerad i Vehicle
+    /* FIX: den här instansvariabeln behövs inte,
+       den är ju redan deklarerad i Vehicle */
     //int mileage;
 
     // Klassvariabel (samma värde för alla instanser)
