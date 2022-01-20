@@ -10,12 +10,6 @@ abstract class Vehicle {
         this.name = name;
     }
 
-    abstract String getAdditionalInfo();
-
-
-    public void getAdditionalInfo2() {
-        System.out.println("Additional info!");
-    }
     public String getName() {
         return name;
     }

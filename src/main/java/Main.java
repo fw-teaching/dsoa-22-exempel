@@ -4,13 +4,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-
         Scanner scanner = new Scanner(System.in);
-
         Garage garage = new Garage();
 
         while(true) {
 
+            // Skriv ut garagets innehåll
             for (int i = 0; i < garage.getInventory().size(); i++) {
                 System.out.printf(" %d - %s (%s km)\n",
                         i,
@@ -18,6 +17,7 @@ public class Main {
                         garage.getInventory().get(i).getMileage());
             }
 
+            // Programmet meny
             System.out.println("Lägg till en ny bil (a), Radera bil (r) eller avsluta (q)");
             String userInput = scanner.nextLine();
 
@@ -40,6 +40,7 @@ public class Main {
                 }
 
                 /* Samma sak med if-sats:
+
                 String delInput = scanner.nextLine();
                 if (Utils.isInt(delInput)
                         && garage.getInventory().size()-1 >= Integer.parseInt(delInput)
@@ -64,10 +65,10 @@ public class Main {
 
 
         /*
-        String userInput = scanner.nextLine();
+        * Exempel på hur vi kan använda vår statiska Utils.isInt()-metod:
+        *
 
-
-        if (Utils.isInt(userInput)) {
+        if (Utils.isInt(scanner.nextLine())) {
             System.out.println("Du skrev ett heltal!");
         } else {
             System.out.println("Inte ett heltal!");

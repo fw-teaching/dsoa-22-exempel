@@ -11,11 +11,6 @@ public class Bike extends Vehicle {
     }
 
     @Override
-    String getAdditionalInfo() {
-        return String.format("Bike type is %s", bikeType);
-    }
-
-    @Override
     public String getName() {
         return String.format("%s (%s)",
                 super.getName(),

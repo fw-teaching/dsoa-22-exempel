@@ -19,9 +19,5 @@ public class Car extends Vehicle {
         return new Car(brands[rnd.nextInt(brands.length)]);
     }
 
-    @Override
-    String getAdditionalInfo() {
-        return String.format("Milage is %d km", mileage);
-    }
 
 }
