@@ -16,11 +16,6 @@ public class Bike extends Vehicle {
     }
 
     @Override
-    int getSubObjectCount() {
-        return 0;
-    }
-
-    @Override
     public String getName() {
         return String.format("%s (%s)",
                 super.getName(),

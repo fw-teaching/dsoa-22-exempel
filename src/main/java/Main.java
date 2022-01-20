@@ -2,63 +2,76 @@ import java.util.Scanner;
 
 public class Main {
 
-    // Konstant
-    static final double APP_VERSION = 1.0;
-
     public static void main(String[] args) {
 
-        System.out.println("App version " + APP_VERSION);
 
-        // Scanner med System.in läser input från konsolen
-        // Skilda objekt för att ta emot int och string för att undvika error
-        Scanner consoleStr = new Scanner(System.in);
-        Scanner consoleInt = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
-        // Man kan deklarera variabler av samma typ flera på en gång
-        Vehicle car, car2;
-
-        // ArrayList-exempel:
         Garage garage = new Garage();
-        garage.addCar(new Car("Fiat"));
 
-        System.out.println("Bilar i garaget:");
-        for (int i = 0; i < garage.getInventory().size(); i++) {
-            System.out.printf("%d - %s\n", i, garage.getInventory().get(i).getName());
+        while(true) {
+
+            for (int i = 0; i < garage.getInventory().size(); i++) {
+                System.out.printf(" %d - %s (%s km)\n",
+                        i,
+                        garage.getInventory().get(i).getName(),
+                        garage.getInventory().get(i).getMileage());
+            }
+
+            System.out.println("Lägg till en ny bil (a), Radera bil (r) eller avsluta (q)");
+            String userInput = scanner.nextLine();
+
+            if (userInput.equals("q")) {
+                break;
+            } else if (userInput.equals("r")) {
+
+                System.out.printf("Skriv bilens nummer (0-%d) för att radera: ", garage.getInventory().size()-1);
+
+                // Felhantering med try/catch
+                try {
+                    // Vi testar detta:
+                    garage.getInventory().remove(Integer.parseInt(scanner.nextLine()));
+                } catch (NumberFormatException | IndexOutOfBoundsException e) {
+                    // Specifikt felmeddelande
+                    System.out.printf("Du måste ge ett heltal mellan 0-%d!\n", garage.getInventory().size()-1);
+                } catch (Exception e) {
+                    // Specifikt felmeddelande
+                    System.out.println(e);
+                }
+
+                /* Samma sak med if-sats:
+                String delInput = scanner.nextLine();
+                if (Utils.isInt(delInput)
+                        && garage.getInventory().size()-1 >= Integer.parseInt(delInput)
+                        && Integer.parseInt(delInput) >= 0) {
+
+                    garage.getInventory().remove(Integer.parseInt(delInput));
+                } else {
+                    System.out.printf("Du måste ge ett heltal mellan 0-%d!\n", garage.getInventory().size()-1);
+                }
+                */
+
+            } else if (userInput.equals("a")) {
+                // Vi skapar ett Car-objekt med vår statiska factory-metod
+                garage.addCar(Car.createRandomCar());
+            }
+
+
+
         }
-        System.out.println("Vilken bil vill du köra? ");
-        car = garage.getInventory().get(consoleInt.nextInt());
-        System.out.println("Du valde: " + car.getName() + "\n----\n");
 
-        // HashMap-exempel:
-        Garage2 garage2 = new Garage2();
-        System.out.println("Bilar i vårt andra garage:");
-        for (String key: garage2.getInventory().keySet()) {
-            System.out.printf("%s - %s\n", key, garage2.getInventory().get(key).getName());
-        }
-        System.out.println("Vilken bil vill du köra? ");
-        car2 = garage2.getInventory().get(consoleStr.nextLine());
-        System.out.println("Du valde: " + car2.getName() + "\n----\n");
+        scanner.close();
 
 
-        // Arrays:
-        String[] carBrands = { "Tesla", "VW", "Toyota" };
-        int[] myNumbers = { 2, 4, 8 };
-        System.out.println("Car brands:");
-        for (int i = 0; i < carBrands.length; i++) {
-            System.out.println(carBrands[i]);
-        }
+        /*
+        String userInput = scanner.nextLine();
 
-        // Klassvariabler
-        System.out.println("tot cars: " + car.getSubObjectCount());
-        System.out.println("tot vehicles: " + Vehicle.getVehicleCounter());
 
-        // Skriv inte ut saker i andra klasser än den som används för UI (Main i det här fallet)
-        // rätt (vi använder main för UI):
-        System.out.println(car.getAdditionalInfo());
-        // Fel: inga direkta utskrifter i logikklasserna!
-        car2.getAdditionalInfo2();
+        if (Utils.isInt(userInput)) {
+            System.out.println("Du skrev ett heltal!");
+        } else {
+            System.out.println("Inte ett heltal!");
+        }*/
 
-        consoleInt.close();
-        consoleStr.close();
     }
 }

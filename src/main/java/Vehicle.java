@@ -5,16 +5,13 @@ abstract class Vehicle {
     private String name;
     int mileage;
 
-    // Klassvariabel (samma värde för alla instanser)
-    static int vehicleCounter = 0;
 
     public Vehicle(String name) {
         this.name = name;
-        vehicleCounter++;
     }
 
     abstract String getAdditionalInfo();
-    abstract int getSubObjectCount();
+
 
     public void getAdditionalInfo2() {
         System.out.println("Additional info!");
@@ -28,7 +25,7 @@ abstract class Vehicle {
         mileage = 100;
     }
 
-    public static int getVehicleCounter() {
-        return vehicleCounter;
+    public Object getMileage() {
+        return mileage;
     }
 }

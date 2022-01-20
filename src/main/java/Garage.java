@@ -5,12 +5,7 @@ public class Garage {
     private ArrayList<Car> inventory = new ArrayList<>();
 
     public Garage() {
-        inventory.add(new Car("Tesla"));
-        inventory.add(new Car("VW"));
-
-        // Det är OK, t.o.m. rekommenderat
-        // att använda interna metoder i konstruktorn!
-        addCar(new Car("Toyota"));
+        inventory.add(Car.createRandomCar());
     }
 
     public ArrayList<Car> getInventory() {
