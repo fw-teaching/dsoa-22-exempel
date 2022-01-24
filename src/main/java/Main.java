@@ -13,6 +13,9 @@ public class Main {
             garage = new Garage();
         }
 
+        garage.addCar(new Car("Tesla", Propulsion.ELECTRIC));
+        garage.addCar(new Car("Prius", Propulsion.HYBRID));
+
         String fileText = "Morjens!!!";
         FileUtils.writeTextFile("file.txt", fileText);
         System.out.println(FileUtils.readTextFile("file.txt"));
@@ -21,10 +24,12 @@ public class Main {
 
             // Skriv ut garagets innehåll
             for (int i = 0; i < garage.getInventory().size(); i++) {
-                System.out.printf(" %d - %s (%s km)\n",
+                System.out.printf(" %d - %s %s (%s km) (efficiency: %d %%)\n",
                         i,
                         garage.getInventory().get(i).getName(),
-                        garage.getInventory().get(i).getMileage());
+                        garage.getInventory().get(i).getPropulsion(),
+                        garage.getInventory().get(i).getMileage(),
+                        garage.getInventory().get(i).getEfficiency());
             }
 
             // Programmet meny
