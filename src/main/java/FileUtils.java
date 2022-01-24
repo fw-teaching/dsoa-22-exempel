@@ -3,6 +3,48 @@ import java.nio.charset.StandardCharsets;
 
 public class FileUtils {
 
+    static Object loadObject(String fileName) {
+        Object retObj = null;
+
+        try {
+            ObjectInputStream objIn = new ObjectInputStream(new FileInputStream(fileName));
+
+            retObj = objIn.readObject();
+
+            objIn.close();
+
+        } catch (FileNotFoundException e) {
+            System.out.println("Ingen savefile hittades!");
+        } catch (InvalidClassException e) {
+            System.out.println("Savefilen är föråldrad, skapar nytt objekt.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            System.out.println("Class not found!");
+            e.printStackTrace();
+        }
+
+        return retObj;
+    }
+
+    static void saveObject(String fileName, Object objectToSave) {
+        System.out.println("Saving object to file " + fileName);
+        try {
+            FileOutputStream outStream = new FileOutputStream(fileName);
+            ObjectOutputStream objOutStream = new ObjectOutputStream(outStream);
+
+            objOutStream.writeObject(objectToSave);
+
+            objOutStream.close();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     static String readTextFile(String fileName) {
         System.out.println("Reading file " + fileName);
         StringBuilder retStr = new StringBuilder();

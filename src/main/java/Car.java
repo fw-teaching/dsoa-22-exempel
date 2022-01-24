@@ -1,6 +1,9 @@
+import javax.xml.stream.events.Characters;
+import java.awt.*;
+import java.io.Serializable;
 import java.util.Random;
 
-public class Car extends Vehicle {
+public class Car extends Vehicle implements Serializable {
 
     // Använd Random() för att få slumptal
     Random rnd = new Random();

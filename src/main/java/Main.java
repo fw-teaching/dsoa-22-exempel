@@ -5,17 +5,17 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        Garage garage = new Garage();
+
+        Garage garage;
+
+        garage = (Garage) FileUtils.loadObject("garage.save");
+        if (garage == null) {
+            garage = new Garage();
+        }
 
         String fileText = "Morjens!!!";
-
         FileUtils.writeTextFile("file.txt", fileText);
-
         System.out.println(FileUtils.readTextFile("file.txt"));
-
-        System.exit(0);
-
-
 
         while(true) {
 
@@ -55,9 +55,9 @@ public class Main {
                 garage.addCar(Car.createRandomCar());
             }
 
-
-
         }
+
+        FileUtils.saveObject("garage.save", garage);
 
         scanner.close();
 

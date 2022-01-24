@@ -1,4 +1,6 @@
-abstract class Vehicle {
+import java.io.Serializable;
+
+abstract class Vehicle implements Serializable {
 
     // Instansvariabler (kan i vissa fall göras publika (eller protected) om vi vill
     // komma åt dem direkt i subklasser (t.ex mileage här))
