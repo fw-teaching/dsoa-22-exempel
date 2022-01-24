@@ -9,7 +9,6 @@ public class Car extends Vehicle {
     public Car(String name) {
         super(name); // "super" är samma sak som "this", men gäller superklassen
         mileage = rnd.nextInt(9000)+1000;
-
     }
 
     // Statisk factory-metod

@@ -7,6 +7,16 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Garage garage = new Garage();
 
+        String fileText = "Morjens!!!";
+
+        FileUtils.writeTextFile("file.txt", fileText);
+
+        System.out.println(FileUtils.readTextFile("file.txt"));
+
+        System.exit(0);
+
+
+
         while(true) {
 
             // Skriv ut garagets innehåll
@@ -39,18 +49,6 @@ public class Main {
                     System.out.println(e);
                 }
 
-                /* Samma sak med if-sats:
-
-                String delInput = scanner.nextLine();
-                if (Utils.isInt(delInput)
-                        && garage.getInventory().size()-1 >= Integer.parseInt(delInput)
-                        && Integer.parseInt(delInput) >= 0) {
-
-                    garage.getInventory().remove(Integer.parseInt(delInput));
-                } else {
-                    System.out.printf("Du måste ge ett heltal mellan 0-%d!\n", garage.getInventory().size()-1);
-                }
-                */
 
             } else if (userInput.equals("a")) {
                 // Vi skapar ett Car-objekt med vår statiska factory-metod
