@@ -23,7 +23,10 @@ public class Stacky {
 
     public String pop() {
         String ret = data[topOfStack];
-        topOfStack--; // Vi flyttar pointern ett steg neråt
+        // Vi flyttar pointern ett steg neråt,
+        // vi behöver inte ta bort elementet på riktigt
+        // vi bara markerar det som tomt utrymme genom att flytta pointern!
+        topOfStack--;
         printStack();
         return ret;
     }
