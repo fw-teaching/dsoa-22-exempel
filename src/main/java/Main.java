@@ -1,42 +1,32 @@
 public class Main {
 
     public static void main(String[] args) {
-
-        Player player = new Player("me");
-        Player npc = new Player("ghoul");
-
-        Player attacker, defender, temp;
-        attacker = player;
-
-        attacker.setName("new name");
-        player.getName(); // new name
-
-        defender = npc;
-
-        while(true) {
-
-            attacker.attack(defender);
-            // 1 = player.attack()
-            // 2 = npc.attack()
-            System.out.println("det gick som det gick " + defender.getName() + " hp:" + defender.getHealth());
-
-            // swap
-            /*
-            temp = attacker;
-            attacker = defender;
-            defender = temp;
-            */
-            if (attacker == player) {
-                attacker = npc;
-                defender = player;
-            } else {
-                attacker = player;
-                defender = npc;
-            }
+        String[] initialArray = { "Fili", "Kili", "Balin", "Dwalin", "Ori", "Nori", "Dori", "Gloin", "Oin", "Bifur", "Bofur", "Bombur", "Thorin" };
 
 
+        Linky linky = new Linky();
+        linky.add(new Player("Gimli"));
+
+        for (int i = 0; i < 5; i++) {
+            linky.add(new Player(initialArray[i]));
         }
 
 
+        System.out.println("-------------------------------");
+
+
+        StringArray myArray = new StringArray(initialArray);
+        System.out.println(myArray.toString());
+
+        myArray.add("Gimli");
+        System.out.println(myArray.toString());
+
+        myArray.add(0, "Bilbo");
+        System.out.println(myArray.toString());
+
+        // new BigO();
+
     }
+
+
 }
