@@ -5,6 +5,12 @@ public class Main {
 
     public static void main(String[] args) {
 
+        // memoisering, snabb:
+        System.out.println(Recursy.fib2(46));
+        // Långsam:
+        // System.out.println(Recursy.fib(46));
+
+
 
         String text = "Grace Hopper        (född Murray), född den 9 december 1906 i New York, död den 1 januari 1992 i Arlington, Virginia, var en amerikansk dator-pionjär och sjöofficer (flottiljamiral).";
 
